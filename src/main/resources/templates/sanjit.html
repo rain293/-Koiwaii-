@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head >
+    <meta charset="UTF-8" >
+    <title >Login Form</title >
+</head >
+<body >
+<div class ="Center">
+ <h1> ログイン </h1>
+  <form method = "post">
+  
+   <div class ="text_field">
+   <label> ユーザー </label>
+    <input type ="text" required placeholder="ユーザー名を入力してください">
+     
+   </div>
+  
+  <div class ="text_field">
+   <label> パスワード </label>
+   <input type ="text" required  placeholder="パスワードを入力してください">
+  </div>
+ 
+ <div class = "pass"> パスワードを忘れた場合 </div>
+ <button id="login"> ログイン</button>
+ <div class ="signup_link">
+ 初めてAmazonをご利用ですか？ <a href="https://www.google.com/">アカウントを作成する</a>
+ </div>
+</form>
+</div>
+</form>
+</body >
+</html >
+<style>
+ body{
+	padding:0%;
+	font-family: montserrat;
+	background: Linear-gradient(120deg, #2980b9, #8e44ad);
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
+    }
+.Center{
+	width:500px;
+	height:430px;
+	background:white;
+	border-radius:10px;
+	margin: 100px auto;
+   }
+.Center h1{
+	text-align:center;
+	padding:0 20px 20px 0;
+	border-bottom: 1px solid silver;		
+    }
+.Center form{
+	padding: 10px 40px;
+	box-sizing: border-box;
+} 
+.text_field{
+position:relative;
+border-bottom:2px solid #adadad;
+margin:10px;;
+width:200px;
+}
+.text_field input{
+	width :223px;
+}
+label{
+	font-weight:bold;
+	width:90px;
+}
+.pass{
+	text-decoration:underline;
+	margin:0 10px;
+}
+#login{
+	font-weight:bold;
+	background-color:blue;
+	color:white;
+	margin:10PX 50px;
+}
+
+</style>
