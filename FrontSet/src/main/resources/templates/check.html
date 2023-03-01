@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang = "ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>NTD</title>
+<style>
+	*{
+		text-align:center;
+	}
+	div h1{
+		color:mediumvioletred;
+		font-family:fantasy
+	}
+	#btn{
+		width:80px;
+		height:30px;
+		border-radius: 15px;
+	    border-color: #aa93ca;
+	    background-color: aliceblue;
+	    margin-bottom:10px;
+		margin-left:0;
+	}
+		#btn:hover{
+			transform:scale(1.1,1.1);
+			background-color:aquamarine;
+		}
+</style>
+</head>
+
+<body>
+	<div th:if="${msg}">
+	  <h1 th:text="${msg}"></h1>
+	</div>
+	<form th:action=@{/home} method = "get"> 
+		<a href = '/home'><button id = "btn">ホーム</button></a>
+	</form>
+	<form th:action=@{/login} method = "get"> 
+		<a href = '/login'><button id = "btn">ログイン</button></a>
+	</form>
+</body>
+</html>
