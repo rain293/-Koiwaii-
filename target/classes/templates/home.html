@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+
+<body>
+	<div th:if="${msg}">
+		<h1 th:text="${msg}"></h1>
+	</div>
+	<form th:action="@{/messageInfoMst/signin}" method="POST">
+		<p>ホームページ</p>
+
+	</form>
+</body>
+
+</html>
