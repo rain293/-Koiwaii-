@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>signup</title>
+</head>
+
+<body style="border: solid 1px; margin: 45px 500px; padding: 15px 30px 30px;">
+    <div th:if="${msg}">
+        <h1 th:text="${msg}"></h1>
+    </div>
+    <form th:action="@{/messageInfoMst/signup}" method="POST">
+
+        <h1>アカウントを作成 </h1>
+        <div class="form-group" style="padding-bottom: 15px;">
+            <label for="name">氏名</label><br>
+            <input type="text" class="form-control" id="name" name="name" placeholder="氏名（例：アマゾン 太郎）">
+        </div>
+        <div class="form-group" style="padding-bottom: 10px;">
+            <label for="email">携帯電話番号またはメールアドレス</label><br>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="password">パスワード</label><br>
+            <input type="password" class="form-control" id="password" name="password" placeholder="最低6文字必要です">
+        </div>
+        <div class="form-group" id="remind" style="font-size: x-small;">　　※パスワードは最低6文字ありますか？</div>
+        <div class="form-group" style="padding-top: 5px;">
+            <label for="gender">性別:　　</label>
+            <label for="male">男性</label>
+            <input type="radio" id="male" name="gender" value="male" checked>
+            <label for="female">女性</label>
+            <input type="radio" id="female" name="gender" value="female">
+
+        </div>
+        <div class="form-group" style="padding: 10px 0px;">
+            <label for="marriage">配偶者</label><br>
+            <select name="marriage" id="marriage">
+                <option value="single">独身</option>
+                <option value="married">結婚した</option>
+                <option value="divorced">離婚した</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div>
+                <input type="checkbox" id="privacy" name="privacy">
+                <label for="scales">利用規約とプライバシー規約に同意</label>
+            </div>
+            <div>
+                <input type="checkbox" id="magazine" name="magazine">
+                <label for="horns">メールマガジンを登録する</label>
+            </div>
+            <div>
+                <input type="checkbox" id="point" name="point">
+                <label for="abc">ポイントカードを申し込む</label>
+            </div>
+        </div><br>
+        <div class="button" style="text-align: right" ;>
+            <button type="submit" class="button">メールアドレスを確認する</button>
+        </div>
+    </form>
+</body>
+
+</html>
