@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ntd.mapper.UserMapper">
+<!-- すべてのユーザを検索 -->
+    <select id="selectAll" resultType="com.ntd.model.User">
+		SELECT * FROM customers
+    </select>
+    
+    <!-- ユーザーを新規挿入 -->
+   <insert id="insert" parameterType="com.ntd.model.User" useGeneratedKeys="true" keyProperty="CustomerID">
+    	INSERT INTO customers(CustomerSei,CustomerMei,CustomerAccount,CustomerPass,CustomerGender,CustomerAge) 
+    	VALUES(#{CustomerSei},#{CustomerMei},#{CustomerAccount},#{CustomerPass},#{CustomerGender},#{CustomerAge})
+    </insert>
+    
+    <select id="checkAccount" resultType="com.ntd.model.User"  parameterType = "com.ntd.model.User">
+        	SELECT * FROM customers WHERE (CustomerAccount = #{CustomerAccount}); 
+    </select>
+    
+    <select id="checkLogin" resultType="com.ntd.model.User"  parameterType = "com.ntd.model.User">
+        	SELECT CustomerAccount,CustomerPass,CustomerMei  FROM customers 
+        	WHERE ((CustomerAccount = #{CustomerAccount}) &amp;&amp; (CustomerPass = #{CustomerPass}))
+    </select>
+</mapper>

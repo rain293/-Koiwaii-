@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+    	*{
+			text-align:center;
+		}
+		#link{
+			margin-top:15px;			
+		}
+		#main .form-group{
+			width:400px;
+			border-radius: 12px;
+			background-color:chartreuse;
+			margin:auto;
+		}
+		#main .form-group div{
+			display:flex;
+			
+		}
+		#main .form-group div p{
+			margin-left:30px;			
+		}
+		#main .form-group div #acountName{
+			width:200px;
+			height:20px;
+			margin-top:15px;
+			margin-left:48px;
+		}
+		#main .form-group div #pass{
+			width:200px;
+			height:20px;
+			margin-top:15px;
+		}
+		#btn{
+			width:70px;
+			height:30px;
+			border-radius: 15px;
+		    border-color: #aa93ca;
+		    background-color: aliceblue;
+			margin-bottom:20px;
+		}
+		#btn:hover{
+			transform:scale(1.1,1.1);
+			background-color:aquamarine;
+		}
+		#link{
+			color:darkkhaki;
+			font-size:12.2px;
+		}
+		#link a {
+		    color: coral;
+		    font-family: cursive;
+		}
+		#link a:hover {
+    		color: blue;
+		}
+    </style>
+</head>
+<body>
+	<h1>ログイン</h1>
+	<form th:action="@{/home}"  method="post">
+		<div th:if="${msg}">
+			  <h6 style="color:red;margin:0px;" th:text="${msg}"></h6>
+			</div>
+		<div id = "main">
+		    <div class="form-group">
+		    	<div>
+			        <p>名前：</p>
+			        <!-- ここにnameの値から名前を受け取ってデータをjavaに送る-->
+			        <input type="input" class="form-control" id="acountName" name="CustomerAccount" placeholder="名前を入力">
+		        </div>
+		        <div>
+			        <p>パスワード：</p>
+			        <!-- ここにpassの値からパスワードを受け取ってデータをjavaに送る-->
+			        <input type="password" class="form-control" id="pass" name="CustomerPass" placeholder="パスワードを入力">
+		        </div>
+		    </div>
+		<br>
+		<!--ボタンを押したらデータ送ってもし名前かパスワードかの一つの情報が入っていないとかただし出ない時はエラーが出る-->
+	    <button type="submit" id = "btn" name = "send" class="send">Send</button>
+	    <!--新規登録をクリックしたら新規登録の画面を表示する-->
+		</div>
+	</form>
+	
+		<form style = "margin-top:-15px;" th:action=@{/register} method = "get"> 
+				<a href = '/register'><button id = "btn">新規登録</button></a>
+		</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

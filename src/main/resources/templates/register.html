@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head >
+    <meta charset="UTF-8" >
+    <title >Register</title >
+    <style>
+   	 *{
+			text-align:center;
+		}
+		header{
+			margin:0 0 2px 0;
+			display:inline-block;
+		}
+		header h1{
+			float:left;
+			margin-left:240px;
+		}
+		header a #loginButton{
+			margin-left:160px;
+			width:70px;
+			height:30px;
+			border-radius: 15px;
+		    border-color: #aa93ca;
+		    background-color: aliceblue;
+		}
+		header a #loginButton:hover{
+			transform:scale(1.1,1.1);
+			background-color:aquamarine;
+		}
+		#link{
+			margin-top:15px;			
+		}
+		#error_box{
+			width:600px;
+			margin:auto;
+		}
+		#error_box span h5{
+			text-align:left;
+			color:darkred;
+			font-size: 10.5px;
+			padding-left: 10px;
+		    margin: 2px;
+		    background-color: lightpink;
+		    border-radius: 12px;
+		}
+		#main{
+			width:600px;
+			border-radius: 12px;
+			background-color:chartreuse;
+			margin:auto;
+			}
+		#main div{
+			display:flex;
+		}
+		#main div p{
+			margin-left:30px;			
+		}
+		
+		div #btn{
+			width:70px;
+			height:30px;
+			border-radius: 15px;
+		    border-color: #aa93ca;
+		    background-color: aliceblue;
+		    margin-top:10px;
+			margin-bottom:20px;
+		}
+		div #btn:hover{
+			transform:scale(1.1,1.1);
+			background-color:aquamarine;
+		}
+   		#main div #CustomerName{
+			width:400px;
+			height:20px;
+			margin-top:15px;
+			margin-left:50px;
+		}
+		#main div #CustomerName .name{
+			width:200px;
+		}
+		#main div #CustomerAccount{
+			width:200px;
+			height:20px;
+			margin-top:15px;
+			margin-left:0px;
+		}
+		#main div #CustomerPass{
+			width:200px;
+			height:20px;
+			margin-top:15px;
+			margin-left:0px;
+		}
+		#main div #CustomerGender{
+			width:300px;
+			height:20px;
+			margin-top:15px;
+			margin-left:48px;
+		}
+		#main div #CustomerAge{
+			width:60px;
+			height:20px;
+			margin-top:15px;
+			margin-left:48px;
+		}
+    </style>
+</head >
+<body >
+	<header>
+		<form style = "width:600px;" th:action=@{/login} method = "get"> 
+			<h1>新規登録</h1>
+			<a href = '/login'><button id = "loginButton">ログイン</button></a>
+		</form>
+	</header>
+	<div id = "error_box">
+		<span th:if="${all_error}">
+			  <h5 th:text="${all_error}"></h5>
+		</span>
+		<span th:if="${account_name_error}">
+			  <h5 th:text="${account_name_error}"></h5>
+		</span>
+		<span th:if="${pass_error}">
+			  <h5 th:text="${pass_error}"></h5>
+		</span>
+		<span th:if="${checkbox_error}">
+			  <h5 th:text="${checkbox_error}"></h5>
+		</span>
+	</div>
+	
+	<form  th:action="@{/check}" method="post">
+		<div id = "main">
+			<div>
+		        <p>名前：</p>
+		        <div  id="CustomerName">
+		        	姓<input type="input" class = "name" name = "CustomerSei" value = "" placeHolder = "姓">
+		        	名<input type="input" class = "name" name = "CustomerMei" value = "" placeHolder = "名">
+		        </div>
+	        </div>
+	    	<div>
+		        <p>ユーザー名：</p>
+		        <input type="input"  id="CustomerAccount" name="CustomerAccount" value = "">
+	        </div>
+	        <div>
+		        <p>パスワード：</p>
+		        <input type="password"  id="CustomerPass" name="CustomerPass" value = "">
+	        </div>
+	        <div>
+		        <p>性別：</p>
+		        <div id = "CustomerGender">
+			        <input type = "radio" name = "CustomerGender" value = "男" checked>男
+			        <input type = "radio" name = "CustomerGender" value = "女">女
+			        <input type = "radio" name = "CustomerGender" value = "その他">その他
+	        	</div>
+	        </div>
+	        <div>
+		        <p>年齢：</p>
+		        	<div id = "CustomerGender">
+			        <select id="selectYear" name = "Year">
+			        	<label for "year"></label>
+					     <option th:each="item : ${years}"   th:value="${item.key}" th:text="${item.value}" th:selected="${item.value} == *{selectYear}">singleSelect</option>
+					</select>
+					年
+			        <select id="selectMonth" name = "Month">
+			       		 <label for "month"></label>	
+					     <option th:each="item : ${months}" th:value="${item.key}" th:text="${item.value}" th:selected="${item.value} == *{selectMonth}">singleSelect</option>
+					</select>
+					月
+			        <select id="selectDay" name = "Day">
+			       		 <label for "day"></label>	
+					     <option th:each="item : ${days}" th:value="${item.key}" th:text="${item.value}" th:selected="${item.value} == *{selectDay}">singleSelect</option>
+					</select>
+					日
+		        	</div>
+	        </div>
+	        <div style = "margin-left:26px;">
+	        	<input type = "checkbox" id = "checkBox" name = "checkBox" placeHolder = "私は条件と同意します。">私は条件と同意します。
+	        </div>
+	    
+		</div>
+		<div>
+	    	<button type="submit" id = "btn" name = "send" class="send">新規登録</button>
+	    </div>
+	</form>
+</body >
+</html >

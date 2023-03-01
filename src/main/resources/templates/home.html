@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang = "ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<style>
+		*{
+			text-align:center;
+		}
+		div#main{
+			width:600px;
+			display:flex;
+			margin:12px 10px 10px 440px;
+			background-color:chartreuse;
+			border-radius: 12px;
+		}
+		div#main #titleHead{
+			width:auto;
+			padding-right: 0px;
+			padding-left:0px;
+			margin:auto;
+		}
+		div#main div h1{
+			margin:12px 0 0 0;;
+			padding:0;
+		}
+		div#main div h6{
+			margin:0;
+			padding:0;
+			color:red;
+		}
+		div#main #link{
+			width:100px;
+			height:28px;
+			margin-left:-110px;
+			margin-top:12px;
+			margin-right:10px;
+		}
+		div#main #link a #btn {
+			width:90px;
+		    border-radius: 15px;
+		    border-color: #aa93ca;
+		    background-color: aliceblue;
+		}
+		div#main #link a #btn:hover{
+			transform:scale(1.1,1.1);
+			background-color:aquamarine;
+		}
+    </style>
+</head>
+<body>
+	<div id = "main">
+		<div id = "titleHead">
+			<h1>NTD</h1>
+			<div th:if="${msg}">
+			  <h6 th:text="${msg}"></h6>
+			</div>
+		</div>
+		<div id  = "link" th:if="${log_in_out}">
+			<form style = "width:100px;" th:action=@{/login} method = "get"> 
+				<a href = '/login'><button id = "btn" th:text="${log_in_out}"></button></a>
+			</form>
+			<form style = "width:100px;margin-top:5px;" th:action=@{/register} method = "get"> 
+				<a href = '/register'><button id = "btn">新規登録</button></a>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
