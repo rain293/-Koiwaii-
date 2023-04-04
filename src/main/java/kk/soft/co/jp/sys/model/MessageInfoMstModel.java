@@ -1,31 +1,33 @@
 package kk.soft.co.jp.sys.model;
 
-import lombok.Data;
-
 import java.io.Serializable;
+
+import lombok.Data;
 
 @Data
 public class MessageInfoMstModel implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * id
-     */
-    private int id;
+	/**
+	 * id
+	 */
+	private int id;
 
-    /**
-     * msg
-     */
-    private String msg;
+	private String name;
+	private String email;
+	private String password;
+	private String gender;
+	private String marriage;
+	private String privacy;
 
-    /**
-     * sender
-     */
-    private String sender;
-
-    public MessageInfoMstModel() {
-    }
-
-
+	public MessageInfoMstModel(String name, String email, String gender, String marriage,
+			String privacy) {
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.gender = gender;
+		this.marriage = marriage;
+		this.privacy = privacy;
+	}
 }

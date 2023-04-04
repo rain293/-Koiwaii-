@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>signup</title>
+</head>
+
+<body style="border: solid 1px; margin: 45px 500px; padding: 15px 30px 30px;">
+	<header>
+		<form th:action="@{/signin}" method="get">
+			<h1>アカウントを作成 </h1>
+		</form>
+	</header>
+	<div id="error_box">
+		<span th:if="${all_error}">
+			<h5 th:text="${all_error}"></h5>
+		</span>
+		<span th:if="${email_error}">
+			<h5 th:text="${email_error}"></h5>
+		</span>
+		<span th:if="${password_error}">
+			<h5 th:text="${password_error}"></h5>
+		</span>
+		<span th:if="${privacy_error}">
+			<h5 th:text="${privacy_error}"></h5>
+		</span>
+	</div>
+	<form th:action="@{/check}" method="post">
+		<div id="main">
+			<div class="form-group" style="padding-bottom: 15px;">
+				<label for="name">氏名</label><br>
+				<input type="text" class="form-control" id="name" name="name" value = "" placeholder="氏名（例：アマゾン 太郎）">
+			</div>
+			<div class="form-group" style="padding-bottom: 10px;">
+				<label for="email">メールアドレス</label><br>
+				<input type="email" class="form-control" id="email" name="email" value = "">
+			</div>
+			<div class="form-group">
+				<label for="password">パスワード</label><br>
+				<input type="password" class="form-control" id="password" name="password" value = "" placeholder="最低6文字必要です">
+			</div>
+			<div class="form-group" id="remind" style="font-size: x-small;">　　※パスワードは最低6文字ありますか？</div>
+			<div class="form-group" style="padding-top: 5px;">
+				<label for="gender">性別:　　</label>
+				<label for="male">男性</label>
+				<input type="radio" id="male" name="gender" value="male" checked>
+				<label for="female">女性</label>
+				<input type="radio" id="female" name="gender" value="female">
+			</div>
+			<div class="form-group" style="padding: 10px 0px;">
+				<label for="marriage">配偶者</label><br>
+				<select name="marriage" id="marriage">
+					<option value="single">独身</option>
+					<option value="married">結婚した</option>
+					<option value="divorced">離婚した</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<div>
+					<input type="checkbox" value="privacy" name="privacy">
+					<label for="privacy">利用規約とプライバシー規約に同意</label>
+				</div>
+				<div>
+					<input type="checkbox" value="magazine" name="privacy">
+					<label for="magazine">メールマガジンを登録する</label>
+				</div>
+				<div>
+					<input type="checkbox" value="point" name="privacy">
+					<label for="point">ポイントカードを申し込む</label>
+				</div>
+			</div><br>
+			<div class="button" style="text-align: right" ;>
+				<button type="submit" class="button">新規登録</button>
+			</div>
+	</form>
+</body>
+
+</html>

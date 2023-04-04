@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< Updated upstream
+=======
+/.apt_generated_tests/
+/bin/
+>>>>>>> Stashed changes
