@@ -1,6 +1,9 @@
+from PIL import Image
 
-import os
-# if os.path.exists('file2.txt'):
-#     os.rename('file2.txt','file.txt')
-a = os.listdir('../Py')
-print(a)
+try:
+    img = Image.open('abc.jpg')
+    print("Image opened successfully.")
+    img.show()
+    print("Show method called.")
+except Exception as e:
+    print(f"An error occurred: {e}")
