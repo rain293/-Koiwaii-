@@ -1,9 +1,9 @@
-import os
+from PIL import Image
 
-# Lấy và in ra thư mục hiện tại
-a = os.path.getmtime('file.txt')
-print(a)
-
-
-
-
+try:
+    img = Image.open('abc.jpg')
+    print("Image opened successfully.")
+    img.show()
+    print("Show method called.")
+except Exception as e:
+    print(f"An error occurred: {e}")
