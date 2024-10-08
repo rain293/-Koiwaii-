@@ -1,7 +1,3 @@
-numbers = [5, 2, 3, 99, 5]
-point	=	{'x':1,	'y':2}
-point['country'] = 'Vietnam'
-numbers.sort()
-
-
-print(point['country'])
+with open('file.txt', 'r') as fh:
+    lines = fh.readlines()
+print(lines)  # In danh sách các dòng
