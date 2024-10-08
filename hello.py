@@ -1,3 +1,3 @@
-with open('file.txt', 'r') as fh:
-    lines = fh.readlines()
-print(lines)  # In danh sách các dòng
+fh = open('file.txt','a+')
+fh.write(' 123123 ')
+fh.close()
