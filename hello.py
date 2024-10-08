@@ -1,6 +1,9 @@
-
 import os
-# if os.path.exists('file2.txt'):
-#     os.rename('file2.txt','file.txt')
-a = os.listdir('../Py')
+
+# Lấy và in ra thư mục hiện tại
+a = os.path.getatime('file.txt')
 print(a)
+
+
+
+
