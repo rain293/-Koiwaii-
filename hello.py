@@ -6,3 +6,10 @@ mydata = {
 }
 jsonstring = json.dumps(mydata)
 print(jsonstring)
+print(jsonstring)
+print(jsonstring)
+print(jsonstring)
+print(jsonstring)
+print(jsonstring)
+print(jsonstring)
+print(jsonstring)
