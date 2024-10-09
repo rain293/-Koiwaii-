@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup as Soup
+from bs4 import BeautifulSoup
 
 note = '''
 <?xml version="1.0" encoding="UTF-8"?>
@@ -17,12 +17,12 @@ note = '''
     </food>
 </breakfast_menu>
 '''
+soup = BeautifulSoup(note,'xml')
 
-soup = Soup(note, 'xml')
 foods = soup.find_all('food')
+
 for food in foods:
-    name = food.find('name').text
-    price = food.find('price').text
-    description = food.find('description').text
-    calories = food.find('calories').text
-    print(f"{name}: {price}: {description}, calories: {calories}")
+    name  = food.find('name').text
+    price  = food.find('price').text
+    print(f'{name}:{price}')
+
