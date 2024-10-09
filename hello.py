@@ -25,4 +25,3 @@ for food in foods:
     name  = food.find('name').text
     price  = food.find('price').text
     print(f'{name}:{price}')
-
