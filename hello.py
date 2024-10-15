@@ -22,3 +22,6 @@ html = '''
 abc = BeautifulSoup(html,'html.parser')
 
 # tcp socket
+
+#I want to create a script file that everytime my system code changed, It will automaticallly generate compile file (.class file) otherwise run app
+
