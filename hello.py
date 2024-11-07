@@ -7,3 +7,6 @@ try:
     print("Show method called.")
 except Exception as e:
     print(f"An error occurred: {e}")
+    print(f"An error occurred: {e}")
+    print(f"An error occurred: {e}")
+    print(f"An error occurred: {e}")
